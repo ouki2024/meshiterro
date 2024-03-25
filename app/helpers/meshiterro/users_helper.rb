@@ -1,0 +1,2 @@
+module Meshiterro::UsersHelper
+end
