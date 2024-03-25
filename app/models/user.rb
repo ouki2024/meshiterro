@@ -4,12 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-         
+  has_one_attached :profile_image       
   has_many :post_images, dependent: :destroy
-  
+  has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   
   # 14章【ユーザーに関する機能(1) - 準備編】
-  has_one_attached :profile_image
+  
   
   def get_profile_image(width, height)
     
