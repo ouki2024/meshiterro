@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
     
+    devise_for :admin, skip: [:regisrations, :password], controllers: {
+      sessions: 'admin/sessions'
+    }
+    
+    namespace :admin do
+      get 'dashboards', to: 'dashboards#index'
+      resources :users, only: [:destroy]
+    end
+    
+    
+    
     get 'users/show'
     get 'users/edit'
     
